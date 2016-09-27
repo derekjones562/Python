@@ -1,6 +1,0 @@
-PLAY [i48 t333 v127]
-PLAY [B2 ]
-PLAY [A2 ]
-PLAY [[A2 A2# ]]
-PLAY [A2# ]
-PLAY [A2 ]

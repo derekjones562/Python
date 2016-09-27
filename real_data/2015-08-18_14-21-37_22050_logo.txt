@@ -1,7 +1,0 @@
-PLAY [i48 t333 v127]
-PLAY [[C2 C2# ]]
-PLAY [A0 ]
-PLAY [[A0 A0# B0 ]]
-PLAY [[A0 A0# B0 ]]
-PLAY [[A0 A0# C2 ]]
-PLAY [A0 ]

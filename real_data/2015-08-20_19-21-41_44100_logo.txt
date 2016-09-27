@@ -1,3 +1,0 @@
-PLAY [i48 t333 v127]
-PLAY [[A3# B3 ]]
-PLAY [G3 ]
