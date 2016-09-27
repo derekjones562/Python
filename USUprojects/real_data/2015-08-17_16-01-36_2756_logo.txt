@@ -1,0 +1,8 @@
+PLAY [i48 t333 v127]
+PLAY [A0 ]
+PLAY [A0 ]
+PLAY [[A0 B1 ]]
+PLAY [A0 ]
+PLAY [[A0 A0# ]]
+PLAY [[A0 D1# E1 F7 ]]
+PLAY [A0 ]

@@ -1,0 +1,4 @@
+PLAY [i48 t333 v127]
+PLAY [A1# ]
+PLAY [A1 ]
+PLAY [[F1 F1# ]]
