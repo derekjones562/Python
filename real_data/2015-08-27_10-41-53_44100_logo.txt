@@ -1,0 +1,7 @@
+PLAY [i48 t333 v127]
+PLAY [[D1 D1# ]]
+PLAY [F2# ]
+PLAY [F2# ]
+PLAY [G2 ]
+PLAY [[F2# G2 ]]
+PLAY [G2 ]
