@@ -1,0 +1,26 @@
+    <h2 class="center">Enjoy Basic&ndash;level access to Doba, plus Elite Seller Report and eBay Data Export, free for days.</h2>
+    {% if success %}
+    <p>Succeded in creating Retailer</p>
+    {% endif %}
+    <div class="center">
+            <form method="POST" id="rms-trial-form" action="{{ url_for('create_rms_retailer') }}">
+               <label for="billing_city">Billing City:</label><input id="billing_city" name="billing_city" type="text"><br/>
+                <label for="billing_country">Billing Country:</label><input id="billing_country" name="billing_country" type="text"><br/>
+                <label for="billing_postal">Billing Postal Code:</label><input id="billing_postal" name="billing_postal" type="text"><br/>
+                <label for="billing_state">Billing State:</label><input id="billing_state" name="billing_state" type="text"><br/>
+                <label for="billing_street">Billing Street:</label><input id="billing_street" name="billing_street" type="text"><br/>
+                <label for="campaign_code">Campaign Code:</label><input id="campaign_code" name="campaign_code" type="text"><br/>
+                <label for="credit_card_exp_month">Credit Card Expiration Month:</label><input id="credit_card_exp_month" name="credit_card_exp_month" type="text"><br/>
+                <label for="credit_card_exp_year">Credit Card Expiration Year:</label><input id="credit_card_exp_year" name="credit_card_exp_year" type="text"><br/>
+                <label for="credit_card_number">Credit Card Number:</label><input id="credit_card_number" name="credit_card_number" type="text"><br/>
+                <label for="cvv2">CVV2:</label><input id="cvv2" name="cvv2" type="text"><br/>
+                <label for="email">Email:</label><input id="email" name="email" type="text"><br/>
+                <label for="firstname">Firstname:</label><input id="firstname" name="firstname" type="text"><br/>
+                <label for="lastname">Lastname:</label><input id="lastname" name="lastname" type="text"><br/>
+                <label for="phone">Phone:</label><input id="phone" name="phone" type="text"><br/>
+                <label for="password">Password:</label><input id="password" name="password" type="text"><br/>
+
+                <input type="submit" class="button primary" value="Start My Free Trial">
+
+            </form>
+    </div>
