@@ -8,10 +8,15 @@ from subprocess import call
 
 class Board(object):
 
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
-        self.board = self.random_state()
+    def __init__(self, new_board, randomize=False):
+        self.width = len(new_board[0])
+        self.height = len(new_board)
+        if randomize:
+            self.board = self.random_state()
+        else:
+            self.board = new_board
+        self._old_board = []
+        self._stable = False
 
     def __str__(self):
         board_as_string = ""
@@ -35,20 +40,22 @@ class Board(object):
     def __repr__(self):
         return self.__str__()
 
-    def _create_dead_row(self):
+    @staticmethod
+    def _create_dead_row(width):
         row = []
-        for i in range(self.width):
+        for i in range(width):
             row.append(0)
         return row
 
-    def _dead_state(self):
+    @staticmethod
+    def dead_state(width, height):
         dead_board = []
-        for i in range(self.height):
-            dead_board.append(self._create_dead_row())
+        for i in range(height):
+            dead_board.append(Board._create_dead_row(width))
         return dead_board
 
     def random_state(self):
-        random_board = self._dead_state()
+        random_board = self.dead_state(self.width, self.height)
         for row in range(self.height):
             for column in range(self.width):
                 random_number = random.random()
@@ -71,7 +78,7 @@ class Board(object):
         return neighbors
 
     def next_board_state(self):
-        new_board = self._dead_state()
+        new_board = self.dead_state(self.width, self.height)
         for row in range(self.height):
             for column in range(self.width):
                 neighbors = self._calculate_number_of_neighbors((row, column))
@@ -86,15 +93,34 @@ class Board(object):
         return new_board
 
     def is_stable(self):
-        return False
+        return self._stable
 
     def play_game(self):
         print(self.__str__())
         new_board = self.next_board_state()
+        if new_board == self.board or new_board == self._old_board:
+            self._stable = True
+        self._old_board = self.board
         self.board = new_board
         time.sleep(.15)
 
+    def load(self, filename):
+        with open(filename, "r") as file:
+            board_from_file = []
+            for line in file.readlines():
+                row = []
+                for char in line:
+                    if char == '0' or char == '1':
+                        row.append(int(char))
+                board_from_file.append(row)
+        return board_from_file
 
-board = Board(5, 5)
-while not board.is_stable():
+
+
+#filename = "./boardTemplates/toad.txt"
+filename = "./boardTemplates/GosperGliderGun.txt"
+board = Board(Board.dead_state(15, 15), True)
+board = Board(board.load(filename))
+#while not board.is_stable():
+while True:
     board.play_game()
