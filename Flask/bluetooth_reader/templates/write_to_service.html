@@ -1,0 +1,11 @@
+<form method="post" action="">
+    <label for="value">Value</label>
+    <input type="text" name="value" id="value">
+    <input hidden type="text" name="handle" id="handle" value="{{ handle }}">
+    <input type="submit">
+</form>
+
+{% if read %}
+<h1>Read</h1>
+{{read}}
+{% endif %}

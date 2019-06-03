@@ -1,0 +1,27 @@
+<h1>Services</h1>
+{% for service in services %}
+    <h2>service</h2>
+    <div style="padding-left: 50px">
+        <h3>characteristics</h3>
+        {% for char in service['characteristics'] %}
+        <div style="padding-left: 50px">
+            <h4>handle</h4>
+            {{ char['handle'] }}
+            <h4>uuid</h4>
+            {{ char['uuid'] }}
+            <h4>read</h4>
+            {{ char['read'] }}
+            <h4>properties</h4>
+            {% if 'WRITE' in char['properties'] %}
+            <a href="/device/{{ device_addr }}/write?handle={{ char['handle'] }}">{{ char['properties'] }}</a>
+            {% else %}
+            {{ char['properties'] }}
+            {% endif %}
+        </div><br/><br/>
+        {% endfor %}
+        <h3>uuid</h3>
+        {{ service['UUID'] }}
+        <h3>descriptors</h3>
+        {{ service['descriptors'] }}
+    </div>
+{% endfor %}
