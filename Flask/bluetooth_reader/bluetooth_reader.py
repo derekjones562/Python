@@ -58,7 +58,6 @@ def get_ble_device_services(device_addr):
 
 def write_ble_device(device_addr, handle, value):
     if type(handle) == str:
-        print("string")
         handle = int(handle)
     if handle < 1 or handle > 65535:
         return None
