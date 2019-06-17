@@ -1,8 +1,9 @@
 <h1>Services</h1>
 {% for service in services %}
-    <h2>service</h2>
+    <h2>service: {{ service['UUID'] }}</h2>
     <div style="padding-left: 50px">
-        <h3>characteristics</h3>
+        {% for descriptor in service['descriptors'] %}
+        <h3>characteristics: {{ descriptor }}</h3>
         {% for char in service['characteristics'] %}
         <div style="padding-left: 50px">
             <h4>handle</h4>
@@ -19,9 +20,6 @@
             {% endif %}
         </div><br/><br/>
         {% endfor %}
-        <h3>uuid</h3>
-        {{ service['UUID'] }}
-        <h3>descriptors</h3>
-        {{ service['descriptors'] }}
+        {% endfor %}
     </div>
 {% endfor %}
