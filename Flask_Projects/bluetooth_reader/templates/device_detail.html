@@ -1,10 +1,11 @@
+door_id : {{door_id }}
+
 <h1>Services</h1>
 {% for service in services %}
     <h2>service: {{ service['UUID'] }}</h2>
     <div style="padding-left: 50px">
-        {% for descriptor in service['descriptors'] %}
-        <h3>characteristics: {{ descriptor }}</h3>
         {% for char in service['characteristics'] %}
+        <h3>characteristics: {{ char['name'] }}</h3>
         <div style="padding-left: 50px">
             <h4>handle</h4>
             {{ char['handle'] }}
@@ -19,7 +20,6 @@
             {{ char['properties'] }}
             {% endif %}
         </div><br/><br/>
-        {% endfor %}
         {% endfor %}
     </div>
 {% endfor %}

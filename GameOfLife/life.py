@@ -104,7 +104,8 @@ class Board(object):
         self.board = new_board
         time.sleep(.15)
 
-    def load(self, filename):
+    @staticmethod
+    def load(filename):
         with open(filename, "r") as file:
             board_from_file = []
             for line in file.readlines():
@@ -118,9 +119,12 @@ class Board(object):
 
 
 #filename = "./boardTemplates/toad.txt"
-filename = "./boardTemplates/GosperGliderGun.txt"
-board = Board(Board.dead_state(15, 15), True)
-board = Board(board.load(filename))
-#while not board.is_stable():
-while True:
+#filename = "./boardTemplates/Pulsar.txt"
+#filename = "./boardTemplates/R-pentomino.txt"
+filename = "./boardTemplates/infinite.txt"
+#filename = "./boardTemplates/PentaDecathlon.txt"
+#filename = "./boardTemplates/GosperGliderGun.txt"
+#board = Board(Board.dead_state(15, 15), True)
+board = Board(Board.load(filename))
+while not board.is_stable():
     board.play_game()
