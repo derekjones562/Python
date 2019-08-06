@@ -23,4 +23,8 @@
                 <input type="submit" class="button primary" value="Start My Free Trial">
 
             </form>
+            <form method="POST" id="cancel-retailer-form" action="{{ url_for('cancel_rms_retailer') }}">
+                <label for="retailer_id">Retailer_id:</label><input id="retailer_id" name="retailer_id" type="text"><br/>
+                <input type="submit" class="button primary" value="Cancel Retailer">
+            </form>
     </div>

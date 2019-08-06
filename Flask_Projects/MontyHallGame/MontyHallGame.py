@@ -14,6 +14,9 @@ with app.app_context():
     db.create_all()
 
 
+def get_images():
+    pass
+
 def create_new_game(ipAddress):
     game = models.MontyHallGame()
     game.ipAddress = ipAddress
@@ -57,6 +60,7 @@ def find_goat_door(game):
 
 @app.route('/')
 def index():
+    get_images()
     game = get_game_by_ip(request.remote_addr)
     try:
         selected_door = game.get_selected_door()

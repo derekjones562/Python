@@ -116,6 +116,21 @@ class Door(db.Model):
         db.session.commit()
 
 
+class Results(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    win = db.Column(db.Boolean, nullable=False)
+    switched = db.Column(db.Boolean, nullable=False)
+
+    def __init__(self, win, switched):
+        self.win = win
+        self.switched = switched
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+
 if __name__ == "__main__":
 
     # Run this file directly to create the database tables.
