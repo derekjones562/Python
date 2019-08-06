@@ -33,7 +33,7 @@ class BrivoShake128Strategy:
         userIdBytes = bytes("%08x" % (user_id), "UTF-8")
         doorIdBytes = bytes("%08x" % (door_id), "UTF-8")
         currentTime = datetime.datetime.utcnow()
-        currentTime = datetime.datetime(2017,11,10,20,53,59)
+        # currentTime = datetime.datetime(2017,11,10,20,53,59)
         flooredTime = self.round_time(currentTime, time_frame)
         flooredTime = pytz.utc.localize(flooredTime)
         flooredTimeString = flooredTime.strftime("%Y-%m-%dT%H:%M:%SZ")  # this hard codes the 'Z' into the string. Brivo probably has a typo. if they fix it. this may have to be a '%Z'

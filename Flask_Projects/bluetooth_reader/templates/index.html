@@ -1,5 +1,14 @@
-{% for addr, name in devices.items() %}
-<a href="/device/{{ addr }}">{{ name }}<a/><br/>
+{% for addr, val in devices.items() %}
+<a href="/device/{{ addr }}?door_id={{ val['door_id']}}">{{ val['name'] }}<a/><br/>
+    <h5>{{addr}}</h5>
+    {% if val['door_id'] %}
+    <h5>Door_id: {{ val['door_id'] }}</h5>
+    {% endif %}
+    <h5>rssi: {{ val['rssi'] }}</h5>
+    <h5>credential: <a href="/device/{{addr}}/unlock?credential={{val['credential']}}&handle=18">{{ val['credential'] }}</a></h5>
+    {% for data in val['scan_data'] %}
+    <h5> {{data}} </h5>
+    {% endfor %}
 {% endfor %}
 
     <h1> hello world!</h1>
