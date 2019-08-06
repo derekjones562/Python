@@ -1,27 +1,51 @@
-{% for door in game.doors %}
-    <div>
-        {{door}}
-        {% if door.selected %}
-            <! add style>
-        {% endif %}
-        {% if door.opened %}
-            <a>Door</a>
-            <! show what was behind door>
-            {% if door.contains_money %}
-            <! show money>
-            {% else %}
-            <! show goat>
-            {% endif %}
-        {% else %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-            <a>Door</a>
-        {% endif %}
+
+    <style>
+.rectangle {
+  height: 100px;
+  width: 50px;
+  background-color: #555;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        {% for door in game.doors %}
+            {% if debug %}
+            <div>
+                {{door}}
+                {% if door.selected %}
+                    <! add style>
+                {% endif %}
+                {% if door.opened %}
+                    <a>Door</a>
+                    <! show what was behind door>
+                    {% if door.contains_money %}
+                    <! show money>
+                    {% else %}
+                    <! show goat>
+                    {% endif %}
+                {% else %}
+
+                    <a>Door</a>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% block buttons scoped %}
+                <div class="col-sm">
+                    <a href="{{url}}?door={{door.id}}"><div class="rectangle" ></div></a>
+                </div>
+            {% endblock buttons %}
+        {% endfor %}
     </div>
-    {% block buttons scoped %}
-    <div>
-        Choose a Door:
-        <a href="{{url}}?door={{door.id}}">Door</a>
-    </div>
-    {% endblock buttons %}
-{% endfor %}
+</div>
 <a href="{{ url_for('new_game') }}">reset</a>
+</body>
+</html>
