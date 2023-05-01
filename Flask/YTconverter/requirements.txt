@@ -1,4 +1,4 @@
 requests==2.27.1
-flask==0.12.2
+flask==2.3.2
 pytube==12.1.0
 #PythonVideoConverter
