@@ -1,4 +1,10 @@
 requests==2.27.1
-flask==0.12.2
-pytube==12.1.0
-#PythonVideoConverter
+flask==2.0.3
+pytube==15.0.0
+Jinja2==3.1.1
+click==8.1.6
+ffmpeg==1.4
+ffprobe==0.5
+## flask-socketio-5.3.5
+## python-socketio-5.8.0
+VideoConverter @ git+https://github.com/UbiCastTeam/python-video-converter@3ad6bd1afc56fa9b6806c2000adf2357da8fe1bd
