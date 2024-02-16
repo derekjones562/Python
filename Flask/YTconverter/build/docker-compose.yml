@@ -1,0 +1,21 @@
+# docker-compose.yaml
+version: '3.5'
+
+services:
+  ############################
+  # YT Converter
+  ############################
+  yt-converter:
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+    ports:
+      - '5000:5000'
+    volumes:
+      - private:/ready
+volumes:
+  private:
+
+networks:
+  local:
+    name: yt-converter
