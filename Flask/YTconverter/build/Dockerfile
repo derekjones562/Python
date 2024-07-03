@@ -10,6 +10,7 @@ RUN apt-get install -y ffmpeg
 COPY requirements.txt requirements.txt
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
+RUN pip3 install yt-dlp --upgrade
 
 COPY . /srv
 # ENV FLASK_APP=app

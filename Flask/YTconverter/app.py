@@ -60,6 +60,7 @@ def download_mp4():
 
 def getfilenamefromurl(url):
     opts = {
+        'restrictfilenames': True,
         'outtmpl': {'default': '%(title)s [%(id)s]'}
     }
     with yt_dlp.YoutubeDL(opts) as ydl:
